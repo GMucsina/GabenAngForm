@@ -1,0 +1,36 @@
+<table class="table" ng-controller="tableController">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>email</th>
+            <th>password</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="row in tableData">
+            <td>{{ ($index + 1) }}</td>
+            <td>
+                <input type="text" class="form-control" ng-model="row.name">
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model="row.email">
+            </td>
+            <td>
+                <input type="text" class="form-control" ng-model="row.password">
+            </td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info" ng-click="updateRow($index, row)">Update</button>
+                    <button class="btn btn-danger">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<pre>
+    {{ tableData | json }}
+</pre>
